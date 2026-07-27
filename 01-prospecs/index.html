@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로스펙스</title>
+    <link rel="shortcut icon" href="./images/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        body, html {
+            background-color:#111;
+            scroll-behavior: smooth;
+        }
+        /* Firefox */
+        html {scrollbar-width: 10px;;scrollbar-color: #222 #e73b3b;}
+        /* Opera */
+        html::-o-scrollbar {width: 10px;}
+        html::-o-scrollbar-thumb {background-color: #222;border-radius: 5px;}
+        /* Chrome, Safari, Edge 등 웹킷 기반 브라우저 */
+        ::-webkit-scrollbar {width: 10px;}
+        ::-webkit-scrollbar-track {box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);}
+        ::-webkit-scrollbar-thumb {background-color: #222;border-radius: 5px;}
+        #top_btn {
+            width:50px; line-height:50px; display:block; font-size:0.75rem;
+            border-radius:50%; text-align:center;
+            position:fixed; right:50px; bottom:50px; z-index:999;
+            background:#000; color:#fff;
+            box-shadow:0 0 10px rgba(255,255,255,0.25);
+        }
+        /* 헤더, 메인, footer, nav을 그룹으로 묶어서 최소너비크기 1000px으로 설정해서 1000px 이하로 작아지지 않게 함  */
+        header,main,footer,nav {min-width:1000px;}
+        header {text-align:center; padding:15px 0;}
+        header img {width:80px;}
+        nav {
+            width:100%; margin:0 auto; background:#222;
+            display:flex; justify-content:space-around; 
+            /* -----------스크롤 내릴 시 내비고정 css */
+            position:sticky; top:0; z-index: 900;
+        }
+        nav a {position:relative; display:inline-block; line-height:60px; padding:0 20px; color:#fff; font-size:0.875rem;}
+        nav a::after {display:block; position:absolute; content:''; background:#e73b3b; width:100%; height:1px; bottom:1px; left:0; display:none;}/* a 아래에 밑줄 가로 부모따르고 세로 1px display:none; */
+        nav a:hover {color:#e73b3b;} /* a에 마우스를 올리명 a의 글자색이 빨강 */
+        nav a:hover::after {display:block;}/* a에 마우스를 올리면 after가 display:block; */
+        main {}
+        main section {
+            height:100vh; /* vh 뷰포트 높이 (뷰포트 = 사용자가 보는 화면 높이) */
+            background-size:cover;
+            background-position:center;
+            position:relative;
+            /* background section 선택자로 전체 섹션 이미지 동일하게 관리  */
+        }
+        /* nth로 나눈이유는 이미지를 다르게 넣기 위해 */
+        main section:nth-child(1) {background-image:url(images/optimize1.png);}
+        main section:nth-child(2) {
+            background-image:url(https://images.unsplash.com/photo-1566932769119-7a1fb6d7ce23?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+            background-attachment: fixed;
+        }
+        main section:nth-child(3) {background-image:url(https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);}
+        main section h2 {/* absolute사용된 이유 글자(화면이 작아지든 크든) 왼쪽아래로 넣기 위해서 */
+            position:absolute; left:50px; bottom:50px;
+            font-size:3rem; font-weight:700; line-height:1.3; color:#fff;
+        }
+        footer {font-size:0.875rem; color:#aaa; text-align:center; padding:50px 0;}
+    </style>
+</head>
+<body>
+    <a href="#2" id="top_btn">TOP</a>
+    <!-- 위 top 버튼(CTA) 클릭 시 section2번 위치로 이동하기 -->
+    <header>
+        <h1><img src="images/logo.svg" alt="프로스펙스"></h1>
+    </header>
+    <nav>
+        <a href="#shop" >SHOP</a>
+        <a href="#club">EVENT</a>
+        <a href="#">ARCHIVE</a>
+        <a href="#">SPONSORSHIP</a>
+        <a href="#">SMART FIT</a>
+    </nav>
+    <main>
+        <section id="shop"></section>
+        <section id="2"><h2>새로워진<br>퍼포먼스 라인을 만나다</h2></section>
+        <section id="club"><h2>시선을 사로잡는<br>오리지널 스포츠 클럽</h2></section>
+    </main>
+    <footer>COPYRIGHT &copy; LS NETWORKS CO. ALL RIGHTS RESERVED
+    </footer>
+</body>
+</html>
