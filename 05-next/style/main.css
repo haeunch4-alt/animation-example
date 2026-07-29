@@ -36,12 +36,13 @@ header nav > ul > li > a {}
 header nav > ul > li > .sub {
     position:absolute; 
     transform:translateY(-30px);  filter: blur(15px);
-    opacity: 0;
+    opacity: 0; height:0; overflow:hidden;
     transition : transform 0.5s, filter 0.5s, opacity 0.5s;
 }
 header nav > ul > li:hover > .sub {
     display:block;
     transform:translateY(0);  filter: blur(0); opacity: 1;
+    height:max-content;
 }
 
 header nav > ul > li > .sub li {width:100px; padding: 10px 0 0;}
@@ -50,18 +51,31 @@ header nav > ul > li > .sub li a:hover {color:#ddd;}
 /*section*/
 section {}
 section .sec1 {background-image:url(../images/bg_01.jpg)}
-section .sec2 {background-image:url(../images/bg_02.jpg)}
+section .sec2 {
+    background-image:
+    url(../images/person.png),
+    url(../images/space.png),
+    url(../images/bg_02.jpg);
+    background-size:auto, cover, cover;
+    background-repeat: no-repeat, repeat-x, repeat;
+    background-position:90% center; 
+    animation:bgAni 1.5s 2s 1 both;
+}
+@keyframes bgAni {
+    0% {background-position:90% center;}
+    100% {background-position:20% center;}
+}
 section .sec3 {background-image:url(../images/bg_03.jpg)}
 section > div {
     background-size:cover; background-position:center;
     text-align:center; height:100vh; width:100%; 
     display:flex; flex-flow:column wrap; justify-content:center; color:#fff;
 }
-section > div:nth-child(2) {
+/* section > div:nth-child(2) {
     background-repeat:no-repeat;
-    background-size:cover, cover;
-    background-position:40% center, center;
-}
+    /* background-size:cover, cover; */
+    /* background-position:40% center, center; 
+} */
 section > div h1 {
     font-family: 'Pattaya', sans-serif;
     font-size:3.0em; line-height:1.5;
