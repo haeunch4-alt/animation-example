@@ -34,11 +34,21 @@
         .menu_contents {position:relative;}
         .menu_contents .menu {
             display:flex; justify-content:space-between;
+            /* (위) .menu>a*4 옆으로 (row) 양쪽끝(s-b)으로 정렬속성 */
             position:absolute; left:0; top:0;
+            /* (위) .menu_contents 부모기준 형제(menu*3개와 겹치는 정렬) */
+            display:none;
         }
+        .menu_contents .menu1 {display:flex;}
+        /* .menu_contents .menu2 {display:flex;} */
+        /* .menu_contents .menu3 {display:flex;} */
         .menu_contents .menu a {
             margin-right:10px; overflow:hidden; position:relative;
             border-radius:10px; 
+        }
+        .menu_contents .menu a:hover .info {
+            /* display: block; */
+            opacity: 1;
         }
         .menu_contents .menu a:last-child {margin-right:0}
         .menu_contents .menu a img {width:100%;}
@@ -48,12 +58,13 @@
             color:#fff;
             width:100%; height:100%; display:block;
             position:absolute; left:0; top:0;
-            text-align:center;
+            text-align:center;opacity: 0;
+            transition:opacity 0.5s;
         }
         .menu_contents .menu .info span:first-child {padding-top:40%;}
         .menu_contents .menu .info span {
             display:block; font-weight: 600;
-            line-height:1.5;
+            line-height:1.5; color:#fff;
         }
         /* active class + animation */
         .active {font-weight:800;}
@@ -66,7 +77,40 @@
     <script>
         window.onload=function(){
 
+            // 자바스크립트 작성위치
+            const coldBrewMenu = document.querySelector('.category_menu a:nth-child(1)');
+            const esprossoMenu = document.querySelector('.category_menu a:nth-child(2)');
+            const frappuMenu = document.querySelector('.category_menu a:nth-child(3)');
             
+            const coldBrewContent = document.querySelector('.menu_contents .menu1');
+            const esprossoContent = document.querySelector('.menu_contents .menu2 ');
+            const frappuContent = document.querySelector('.menu_contents .menu3');
+
+            console.log(coldBrewMenu,esprossoMenu,frappuMenu);
+            console.log(coldBrewContent ,esprossoContent ,frappuContent );
+
+            coldBrewMenu.addEventListener('click',coldUp);
+            esprossoMenu.addEventListener('click',esUp);
+            frappuMenu.addEventListener('click',fraUp);
+
+            function allHide(){
+                coldBrewContent.style.display='none';
+                esprossoContent.style.display='none';
+                frappuContent.style.display='none';
+            }
+
+            function coldUp(){
+                allHide()
+                coldBrewContent.style.display='flex'
+            }
+            function esUp(){
+                allHide()
+                esprossoContent.style.display='flex'
+            }
+            function fraUp(){
+                allHide() 
+                frappuContent.style.display='flex'
+            }
 
         }//e:onload
     </script>
@@ -86,6 +130,7 @@
         </div>
         <div id="menu_title"><!-- javascript --></div>
         <div class="menu_contents">
+            <!-- ----------------------------------------------- 콜드브루-->
             <div class="menu menu1">
                 <a href="#">
                     <img src="images/menu1-1.jpg" alt="">
@@ -98,6 +143,7 @@
                 <a href="#"><img src="images/menu1-3.jpg" alt=""><span class="info"><span>콜드브루커피</span><span>150kcal</span></span></a>
                 <a href="#"><img src="images/menu1-4.jpg" alt=""><span class="info"><span>콜드브루커피</span><span>40kcal</span></span></a>
             </div>
+            <!-- -----------------------------------------------에스프레소-->
             <div class="menu menu2">
                 <a href="#">
                     <img src="images/menu2-1.jpg" alt="">
@@ -110,6 +156,7 @@
                 <a href="#"><img src="images/menu2-3.jpg" alt=""><span class="info"><span>에스프레소</span><span>150kcal</span></span></a>
                 <a href="#"><img src="images/menu2-4.jpg" alt=""><span class="info"><span>에스프레소</span><span>40kcal</span></span></a>
             </div>
+            <!-- ----------------------------------------------- 프라푸치노-->
             <div class="menu menu3">
                 <a href="#">
                     <img src="images/menu3-1.jpg" alt="">

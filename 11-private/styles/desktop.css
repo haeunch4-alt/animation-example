@@ -6,7 +6,8 @@ header {
     align-items:center; z-index:999;
     position:fixed; left:50%; top:0; margin-left:-700px;
 }
-header nav a {margin:0 7px;}
+header nav {display: flex; justify-content: center;}
+header nav a {margin:0 7px; color:#fff;}
 header .right a {
     position:relative; padding:5px 5px 5px 27px;
     border:1px dashed rgba(255,255,255,0.6); 
@@ -32,6 +33,15 @@ main {
 main > * {max-width:1400px; margin:0 auto;}
 /* 중첩순서 처리 배경(10) 그라디언트(20) 나머지(30) */
 main .bg_wrap {position:absolute; z-index:10;}
+main .bg_wrap::before,main .bg_wrap::after {
+    content: ''; display: block; 
+    height: 100%; width: 25%;;  
+    position:absolute;  top:0;
+    background: linear-gradient(90deg,rgb(9,13,43), transparent);
+    z-index: 999;
+}
+main .bg_wrap::before {left:0;;}
+main .bg_wrap::after {right:0; transform: scaleX(-1);}
 main .txt, main .car_list, main .car, main .scroll {
     width:1400px; margin:0 auto; position:relative; z-index:30;
 }
@@ -43,6 +53,7 @@ main .bg_wrap .bg1 {
 }
 main .bg_wrap .bg2 {
     height:200px; 
+    
     background:url(../images/bg_city1.png) repeat-x;
 }
 main .bg_wrap .bg3 {
@@ -58,6 +69,6 @@ main .car #car {width:100%;}
 main .car #left_tire, main .car #right_tire {
     position:absolute; bottom:25px; width:67px;
 }
-main .car #left_tire {left:102px;}
+main .car #left_tire {left:102px; }
 main .car #right_tire {right:91px;}
 

@@ -1,0 +1,12 @@
+@keyframes move {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+@keyframes trans {
+    0% {background-position-x:0 ;}
+    100% {background-position-x: 1000px;}
+}
+main .car #left_tire, main .car #right_tire {animation:move 0.8s linear infinite;}
+main .bg_wrap .bg1 { animation:trans 90s infinite linear ; }
+main .bg_wrap .bg2 { animation:trans 30s infinite linear ; }
+main .bg_wrap .bg3 {animation:trans 10s infinite linear ;}
