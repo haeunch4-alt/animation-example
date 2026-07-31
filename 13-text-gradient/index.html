@@ -28,6 +28,18 @@
             background-clip: text;
             color: transparent;
         }
+        main h3 {
+            font-size: 8rem;
+            font-weight:800;
+            letter-spacing: -0.1rem;
+            background:linear-gradient(to right, #0925a5, #1189d8, #0925a5, #1189d8,#0925a5, #1189d8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            background-size: 200%;
+            animation:bg-gradient 5s linear infinite alternate ;
+        }
         p {width:30px;}
         p img {width:100%;}
         p:nth-child(1) img {}
@@ -35,8 +47,8 @@
         footer img {width:24px;}
         footer img:nth-child(1) {margin-right:10px;}
         @keyframes bg-gradient {
-            0% {}
-            100% {}
+            0% {background-position:left;}
+            100% {background-position:right;}
         }
     </style>
 </head>
@@ -45,6 +57,7 @@
         <p><img src="./images/arrow.png" alt=""></p>
         <h1>PORTFOLIO</h1>
         <h2>PROJECT</h2>
+        <h3>profile</h3>
         <p><img src="./images/arrow.png" alt=""></p>
     </main>
     <footer>
